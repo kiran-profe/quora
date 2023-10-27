@@ -1,0 +1,25 @@
+{% extends 'web/base.html' %}
+{% block content %}
+
+{% block title %}{{block.super}}{% endblock %}
+<div>
+		<h2 class="display-6">Asked Questions :</h2>
+		<hr class="my-4">
+		{% for question in questions %}
+			<div>
+				<h2><p><a style="color: black;" href="{% url 'web:question_details' question.id %}">{{question.title}}</a></p></h2>
+				<p><strong>Author: </strong><a href="#">{{question.author}}</a>
+					<span class="float-right">
+						<span class="badge badge-secondary">Created: {{question.created}}</span>
+						<span class="badge badge-secondary">Updated: {{question.updated}}</span>
+					</span>
+				</p>
+				<h4>Description:</h4><h6>{{question.body}}</h6>
+			</div>
+			<br>
+			<hr class="my-4">
+		{% endfor %}
+	</div>
+	<br>
+	<br>
+{% endblock %}
